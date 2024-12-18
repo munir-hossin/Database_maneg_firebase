@@ -9,13 +9,14 @@ const handleAsyncThunk = (builder, asyncThunk, stateKey = "posts") => {
             if (action.type == "categories/getCategories/fulfilled") {
                 state.categories = action.payload;
             }
+
             if (action.type == "categories/deleteCategories/fulfilled") {
                 const categoryIndex = state.categories.findIndex(
                     (item) => item.id == action.payload
                 );
+
                 state.categories.splice(categoryIndex, 1);
             }
-            console.log(action);
         })
         .addCase(asyncThunk.rejected, (state, action) => {
             state.isLoading = false;
@@ -23,4 +24,5 @@ const handleAsyncThunk = (builder, asyncThunk, stateKey = "posts") => {
             state.error = action.error?.message;
         });
 };
+
 export { handleAsyncThunk };

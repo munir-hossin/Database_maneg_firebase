@@ -1,6 +1,6 @@
-
 import { Link, Outlet } from "react-router";
 import { ToastContainer } from "react-toastify";
+
 export default function DashboardLayout() {
     return (
         <>
@@ -12,6 +12,7 @@ export default function DashboardLayout() {
                     >
                         Home
                     </Link>
+
                     <div className="space-x-4">
                         <Link
                             to="create-product"
